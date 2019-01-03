@@ -1,0 +1,4 @@
+1. Buka file conn.php di folder utility
+2. Isi Setting Koneksi sesuai dengan konfigurasi server .
+   host,user,password dan nama database
+3. File backup tersimpan di folder utility

@@ -1,0 +1,24 @@
+HATI-HATI KARENA AKAN MEREPLACE DATA YANG SEBELUMNYA 
+
+1. BUKA FILE BACKUP ( di Folder /utility/db-backup*******.sql)
+   * TAMBAHKAN baris perintah ini ke file backup di posisi atas :
+
+   SET FOREIGN_KEY_CHECKS=0;
+
+
+2. BUKA FILE RESTORE ( FOLDER UTILITY)
+
+
+di folder : /utility/restore_data.php
+
+***  EDIT DENGAN NAMA FILE BACKUP YANG AKAN DI RESTORE ke APLIKASI : (Ada di folder /utility/db-backup*******.sql) 
+$filename = 'db-backup-kop-30-07-2017-1501394161-add559e32b13bfbec909454b46b211cf.sql';
+
+*** EDIT mysql_database (SESUAIKAN DENGAN DATABASE APLIKASI)
+$mysql_database = 'mub_koperasi';
+
+3. JIKA BELUM BERHASIL LAKUKAN SECARA MANUAL LEWAT PHPMYADMIN (IMPORT - DATA)
+
+4. Kontak Admin
+
+**** Selesai *****
