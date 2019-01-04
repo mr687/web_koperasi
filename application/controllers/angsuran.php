@@ -168,10 +168,11 @@ class Angsuran extends OperatorController {
 
 		// -- bayar angsuran --
 		$row_pinjam = $this->general_m->get_data_pinjam($master_id); #data pinjam
+		$biaya_adm = $row_pinjam->biaya_adm;
 		$lama_ags = $row_pinjam->lama_angsuran; # lama angsuran
 		$status_lunas = $row_pinjam->lunas; # status lunas
 		$sisa_ags = $lama_ags  - $ags_ke; #sisa angsuran 
-		$jml_pinjaman = $row_pinjam->lama_angsuran  * $row_pinjam->ags_per_bulan; #jml pinjaman
+		$jml_pinjaman = $row_pinjam->tagihan; #jml pinjaman
 
 		//hitung denda
 		$denda = $this->general_m->get_jml_denda($master_id);
@@ -184,8 +185,8 @@ class Angsuran extends OperatorController {
 		//total harus bayar 
 		$total_bayar = $jml_pinjaman + $jml_denda_num;
 
-		$sisa_tagihan = number_format(nsi_round($row_pinjam->ags_per_bulan * $sisa_ags)); #sisa tagihan 
-		$sisa= $row_pinjam->ags_per_bulan * $sisa_ags; #sisa tagihan 
+		$sisa_tagihan = number_format(nsi_round($row_pinjam->ags_per_bulan * $sisa_ags + $biaya_adm)); #sisa tagihan 
+		$sisa= $row_pinjam->ags_per_bulan * $sisa_ags + $biaya_adm; #sisa tagihan 
 
 		//sisa pembayaran
 		$sisa_pembayaran = $sisa + $jml_denda_num ;

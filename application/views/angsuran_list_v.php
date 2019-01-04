@@ -30,8 +30,8 @@ $tanggal = date('Y-m-d H:i');
 $tanggal_arr = explode(' ', $tanggal);
 $txt_tanggal = jin_date_ina($tanggal_arr[0]);
 $txt_tanggal .= ' - ' . $tanggal_arr[1];
-
-$tagihan = $row_pinjam->ags_per_bulan * $row_pinjam->lama_angsuran;
+$biaya_adm = $row_pinjam->biaya_adm;
+$tagihan = $row_pinjam->ags_per_bulan * $row_pinjam->lama_angsuran + $biaya_adm;
 $dibayar = $hitung_dibayar->total;
 $jml_denda=$hitung_denda->total_denda;
 $sisa_bayar = $tagihan - $dibayar;
@@ -333,7 +333,8 @@ striped="true">
 			<tr style="height:30px">
 				<td> Jumlah Angsuran</td>
 				<td> : </td>
-				<td> <div class="inputform"><?php echo number_format((nsi_round($row_pinjam->ags_per_bulan))); ?></div>
+				<td> 
+					<div id="angsuran_txt" class="inputform"><?php echo number_format((nsi_round($row_pinjam->ags_per_bulan))); ?></div>
 					<input type="hidden" id="angsuran" name="angsuran" value="<?php echo ($row_pinjam->ags_per_bulan); ?>" readonly="readonly" />
 				</td>
 			</tr>
@@ -463,7 +464,8 @@ striped="true">
 		jQuery('#tgl_transaksi_txt').val('<?php echo $txt_tanggal;?>');
 		jQuery('#tgl_transaksi').val('<?php echo $tanggal;?>');
 		jQuery('#pinjam_id').val('<?php echo  $master_id; ?>');
-		jQuery('#angsuran').val('<?php echo number_format(($row_pinjam->ags_per_bulan)); ?>');
+		jQuery('#angsuran').val('<?= number_format(($row_pinjam->ags_per_bulan)); ?>');
+		jQuery('#angsuran_txt').html('<?= number_format(($row_pinjam->ags_per_bulan)); ?>');
 		jQuery('#kas_id option[value="0"]').prop('selected', true);
 		url = '<?php echo site_url('angsuran/create'); ?>';
 		$("#angsuran_ke").html('<img src="<?php echo base_url();?>assets/theme_admin/img/loading.gif" />');
@@ -486,6 +488,11 @@ striped="true">
 					$('#sisa_tagihan').text(result.sisa_tagihan);
 					$('#jml_bayar').val(result.sisa_pembayaran);
 					$('#jml_kas').val(result.total_tagihan);
+
+					if(result.ags_ke == 1){
+						jQuery('#angsuran').val('<?= number_format(($row_pinjam->ags_per_bulan + $row_pinjam->biaya_adm)); ?>');
+						jQuery('#angsuran_txt').html('<?= number_format(($row_pinjam->ags_per_bulan + $row_pinjam->biaya_adm)); ?>');
+					}
 				}
 			},
 			error : function() {

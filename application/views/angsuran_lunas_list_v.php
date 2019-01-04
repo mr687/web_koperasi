@@ -30,8 +30,8 @@
 	$tanggal_arr = explode(' ', $tanggal);
 	$txt_tanggal = jin_date_ina($tanggal_arr[0]);
 	$txt_tanggal .= ' - ' . $tanggal_arr[1];
-
-	$tagihan = $row_pinjam->ags_per_bulan * $row_pinjam->lama_angsuran;
+	$biaya_adm = $row_pinjam->biaya_adm;
+	$tagihan = $row_pinjam->tagihan;
 	$dibayar = $hitung_dibayar->total;
 	$jml_denda=$hitung_denda->total_denda;
 	$sisa_bayar = $tagihan - $dibayar;

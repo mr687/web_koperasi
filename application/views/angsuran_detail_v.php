@@ -35,7 +35,7 @@
 
 <!-- buaat tanggal sekarang -->
 <?php 
-$tagihan = $row_pinjam->ags_per_bulan * $row_pinjam->lama_angsuran;
+$tagihan = $row_pinjam->tagihan;
 $dibayar = $hitung_dibayar->total;
 $jml_denda=$hitung_denda->total_denda;
 $sisa_bayar = $tagihan - $dibayar;
@@ -224,18 +224,30 @@ if(!empty($simulasi_tagihan)) {
 		$txt_tanggal = jin_date_ina($row['tgl_tempo']);
 		$jml_pokok += $row['angsuran_pokok'];
 		$jml_bunga += $row['bunga_pinjaman'];
-		$jml_adm += $row['biaya_adm'];
+		$jml_adm = $row['biaya_adm'];
 		$jml_ags += $row['jumlah_ags'];
 
-		echo '
-			<tr bgcolor='.$warna.'>
-				<td class="h_tengah">'.$no.'</td>
-				<td class="h_kanan">'.number_format(nsi_round($row['angsuran_pokok'])).'</td>
-				<td class="h_kanan">'.number_format(nsi_round($row['bunga_pinjaman'])).'</td>
-				<td class="h_kanan">'.number_format(nsi_round($row['biaya_adm'])).'</td>
-				<td class="h_kanan">'.number_format(nsi_round($row['jumlah_ags'])).'</td>
-				<td class="h_tengah">'.$txt_tanggal.'</td>
-			</tr>';
+			if($no == 1){
+				echo '
+					<tr bgcolor='.$warna.'>
+						<td class="h_tengah">'.$no.'</td>
+						<td class="h_kanan">'.number_format(nsi_round($row['angsuran_pokok'])).'</td>
+						<td class="h_kanan">'.number_format(nsi_round($row['bunga_pinjaman'])).'</td>
+						<td class="h_kanan">'.number_format(nsi_round($row['biaya_adm'])).'</td>
+						<td class="h_kanan">'.number_format(nsi_round($row['jumlah_ags'])).'</td>
+						<td class="h_tengah">'.$txt_tanggal.'</td>
+					</tr>';
+			}else{
+				echo '
+					<tr bgcolor='.$warna.'>
+						<td class="h_tengah">'.$no.'</td>
+						<td class="h_kanan">'.number_format(nsi_round($row['angsuran_pokok'])).'</td>
+						<td class="h_kanan">'.number_format(nsi_round($row['bunga_pinjaman'])).'</td>
+						<td class="h_kanan">-</td>
+						<td class="h_kanan">'.number_format(nsi_round($row['jumlah_ags'])).'</td>
+						<td class="h_tengah">'.$txt_tanggal.'</td>
+					</tr>';
+			}
 		$no++;
 	}
 	echo '<tr bgcolor="#eee">

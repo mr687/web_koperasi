@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 04, 2019 at 07:09 AM
+-- Generation Time: Jan 04, 2019 at 07:11 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_koperasi`
+-- Database: `db_kop2018`
 --
 
 -- --------------------------------------------------------
@@ -261,15 +261,6 @@ CREATE TABLE `tbl_anggota` (
   `pass_word` varchar(225) NOT NULL,
   `file_pic` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `tbl_anggota`
---
-
-INSERT INTO `tbl_anggota` (`id`, `nama`, `identitas`, `jk`, `tmp_lahir`, `tgl_lahir`, `status`, `agama`, `departement`, `pekerjaan`, `alamat`, `kota`, `notelp`, `tgl_daftar`, `jabatan_id`, `aktif`, `pass_word`, `file_pic`) VALUES
-(1, 'Ahmad', 'ahmad', 'L', 'Jakarta', '2007-01-11', 'Kawin', 'Islam', 'Accounting', 'Karyawan Swasta', 'Jl. Sedayu X No. 14', 'Pemalang', '0812345567', '2017-01-25', 2, 'Y', '8ef74032faf83d0c2caf3022418196a1e0527972', '84b7e-1.jpg'),
-(2, 'Hartini', 'hartini', 'P', 'Jawa Tengah', '2017-01-06', 'Kawin', 'Islam', 'HRD', 'Karyawan Swasta', 'Jl. Gunung Raya no. 29', 'Pemalang', '08123454647', '2017-01-18', 2, 'Y', '70c9a367ce52640a0a80d23e9c25f5894d0b62e7', ''),
-(3, 'FARIDA NURUN NAJAH', 'farida', 'P', 'pati', '1994-05-21', 'Kawin', 'Islam', '', 'Lainnya', 'lahar tlogowungu pati', 'pati', '085713768725', '2018-10-02', 2, 'Y', '8e0b34fd3bff67e3c195f1d0484dc4ada3e2c9f0', '3e7e2-ok1.jpg');
 
 -- --------------------------------------------------------
 
@@ -678,7 +669,7 @@ ALTER TABLE `suku_bunga`
 -- AUTO_INCREMENT for table `tbl_anggota`
 --
 ALTER TABLE `tbl_anggota`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_barang`

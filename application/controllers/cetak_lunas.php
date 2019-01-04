@@ -51,20 +51,19 @@ function cetak($id) {
 
             $hitung_dibayar = $this->general_m->get_jml_bayar($row->pinjam_id);
             $dibayar = $hitung_dibayar->total;
-            $tagihan = $pinjaman->ags_per_bulan * $pinjaman->lama_angsuran;
-            
+            $tagihan = $pinjaman->tagihan;
 
             $hitung_denda = $this->general_m->get_jml_denda($row->pinjam_id);
             $jml_denda=$hitung_denda->total_denda;
-
+            
             $sisa_bayar = $tagihan - $dibayar + $jml_denda ;
-
+            
             $tgl_bayar = explode(' ', $row->tgl_bayar);
             $txt_tanggal = jin_date_ina($tgl_bayar[0]);
-
+            
             $tgl_pinjam = explode(' ', $pinjaman->tgl_pinjam);
             $tgl_pinjam = jin_date_ina($tgl_pinjam[0]);   
-
+            
             $tgl_tempo = explode(' ', $pinjaman->tempo);
             $tgl_tempo = jin_date_ina($tgl_tempo[0]); 
 

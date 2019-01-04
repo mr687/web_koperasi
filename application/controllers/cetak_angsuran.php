@@ -53,7 +53,7 @@ class Cetak_angsuran extends OperatorController {
 
 		$hitung_dibayar = $this->general_m->get_jml_bayar($row->pinjam_id);
 		$dibayar = $hitung_dibayar->total;
-		$tagihan = $pinjaman->ags_per_bulan * $pinjaman->lama_angsuran;
+		$tagihan = $pinjaman->tagihan;
 		$sisa_bayar = $tagihan - $dibayar ;
 
 		$total_dibayar = $sisa_bayar + $jml_denda;

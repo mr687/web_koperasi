@@ -38,10 +38,12 @@ class Pinjaman extends OperatorController {
 		$this->data['kas_id'] = $this->pinjaman_m->get_data_kas();
 		$this->data['jenis_ags'] = $this->pinjaman_m->get_data_angsuran();
 		$this->data['suku_bunga'] = $this->pinjaman_m->get_data_bunga();
+
+		
 		$this->data['biaya'] = $this->pinjaman_m->get_biaya_adm();
-
+		
 		$this->data['barang_id'] = $this->pinjaman_m->get_id_barang();
-
+		
 		$this->data['isi'] = $this->load->view('pinjaman_list_v', $this->data, TRUE);
 		$this->load->view('themes/layout_utama_v', $this->data);
 	}

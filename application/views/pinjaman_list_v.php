@@ -170,7 +170,7 @@ striped="true">
 							</td>	
 						</tr>
 						<tr style="height:35px">
-							<td>Biaya Admin</td>
+							<td>Biaya Admin (<?= $biaya_adm ?>%)</td>
 							<td>:</td>
 							<td>
 								<input type="hidden" name="biaya_adm" id="biaya_adm" readonly="readonly" />
@@ -233,6 +233,14 @@ $(document).ready(function() {
 				$('#jumlah').attr('readonly', 'true');
 				$('#jumlah').css('background-color', '#eee');
 			}
+
+			var val_jumlah = $('#jumlah').val();;
+			var disc = '<?php echo $biaya_adm;?>';
+			var jum = val_jumlah.replace(/,/g, '');
+			var discon = jum * disc / 100;
+			$('#jumlah').val(number_format(val_jumlah));
+			$('#biaya_adm_txt').val(number_format(discon));
+			$('#biaya_adm').val(number_format(discon));
 		})
 		.fail(function() {
 			alert('Kesalahan Konekasi, silahkan ulangi beberapa saat lagi.');
@@ -356,7 +364,7 @@ function  create(){
 
 	$('#jumlah').keyup(function(){
 		var val_jumlah = $(this).val();
-		var disc = 2;
+		var disc = '<?php echo $biaya_adm;?>';
 		var jum = val_jumlah.replace(/,/g, '');
 		var discon = jum * disc / 100;
 		$('#jumlah').val(number_format(val_jumlah));
