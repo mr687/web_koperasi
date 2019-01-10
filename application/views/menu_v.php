@@ -168,7 +168,7 @@ if(in_array($this->uri->segment(1), $menu_sett_arr)) {echo "active";}?>">
 <ul class="treeview-menu">          
 	<li class="<?php if ($this->uri->segment(1) == 'profil') { echo 'active'; } ?>"><a href="<?php echo base_url(); ?>profil"> <i class="fa fa-folder-open-o"></i> Identitas Koperasi </a></li>
 
-	<li class="<?php if ($this->uri->segment(1) == 'suku_bunga') { echo 'active'; } ?>">  <a href="<?php echo base_url(); ?>suku_bunga"> <i class="fa fa-folder-open-o"></i> Suku Bunga </a></li>
+	<li class="<?php if ($this->uri->segment(1) == 'suku_bunga') { echo 'active'; } ?>">  <a href="<?php echo base_url(); ?>suku_bunga"> <i class="fa fa-folder-open-o"></i> Bagi Hasil </a></li>
 
 	<li class="<?php if ($this->uri->segment(1) == 'backup') { echo 'active'; } ?>">  <a href="utility/backup_data.php" target="_blank" > <i class="fa fa-folder-open-o"></i> Backup </a></li>
 

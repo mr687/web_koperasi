@@ -148,7 +148,7 @@ striped="true">
 							</td>	
 						</tr>
 						<tr style="height:35px">
-							<td>Bunga</td>
+							<td>Bagi Hasil</td>
 							<td>:</td>
 							<td>
 								<input type="hidden" name="bunga" id="bunga" readonly="readonly" />

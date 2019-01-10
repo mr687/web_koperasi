@@ -129,7 +129,7 @@ class Cetak_pinjaman extends OperatorController {
 				<td class="h_kanan">'.number_format($row->biaya_adm).'</td>
 			</tr>
 			<tr>
-				<td> Angsuran Bunga </td>
+				<td> Angsuran Bagi Hasil </td>
 				<td>: Rp. </td>
 				<td class="h_kanan">'.number_format($row->bunga_pinjaman).'</td>
 			</tr>

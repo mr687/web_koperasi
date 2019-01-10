@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Bunga_m extends CI_Model {
+class Bagi Hasil_m extends CI_Model {
 
 	function get_key_val() {
 		$out = array();

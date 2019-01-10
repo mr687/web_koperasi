@@ -66,7 +66,7 @@
 							<th data-field="tgl_pinjam" data-sortable="false" data-valign="middle" data-align="center" data-halign="center">Tanggal</th>
 							<th data-field="lama_angsuran" data-sortable="false" data-valign="middle" data-align="center" data-halign="center">Lama Angsuran</th>
 							<th data-field="jumlah" data-sortable="false" data-valign="middle" data-align="right" data-halign="center">Jumlah</th>
-							<th data-field="bunga_pinjaman" data-sortable="false" data-valign="middle" data-align="right" data-halign="center">Bunga</th>
+							<th data-field="bunga_pinjaman" data-sortable="false" data-valign="middle" data-align="right" data-halign="center">Bagi Hasil</th>
 							<th data-field="biaya_adm" data-sortable="false" data-valign="middle" data-align="right" data-halign="center">Administrasi</th>
 							<th data-field="ags_per_bulan" data-sortable="false" data-valign="middle" data-align="right" data-halign="center">Angsuran Per Bulan</th>
 							<th data-field="tagihan" data-sortable="false" data-valign="middle" data-align="right" data-halign="center">Tagihan</th>

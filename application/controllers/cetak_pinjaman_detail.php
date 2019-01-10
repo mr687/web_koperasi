@@ -88,7 +88,7 @@ class Cetak_pinjaman_detail extends OperatorController {
 				<td> : </td>
 				<td> '.$anggota->alamat.'</td>
 
-				<td> Angsuran Bunga </td>
+				<td> Angsuran Bagi Hasil </td>
 				<td> : Rp. </td>
 				<td class="h_kanan"> '.number_format($row->bunga_pinjaman).'</td>
 			</tr>
@@ -158,7 +158,7 @@ class Cetak_pinjaman_detail extends OperatorController {
 			<tr class="header_kolom">
 				<th style="width:10%;"> Bln ke</th>
 				<th style="width:20%;"> Angsuran Pokok</th>
-				<th style="width:20%;"> Angsuran Bunga</th>
+				<th style="width:20%;"> Angsuran Bagi Hasil</th>
 				<th style="width:10%;"> Biaya Adm</th>
 				<th style="width:20%;"> Jumlah Angsuran</th>
 				<th style="width:20%;"> Tanggal Tempo</th>

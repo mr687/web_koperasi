@@ -38,11 +38,11 @@
 				<td>';
 				// tipe bunga
 				$options = array(
-					'A'  => 'A: Persen Bunga dikali angsuran bln',
-					'B'  => 'B: Persen Bunga dikali total pinjaman'
-					//'C'  => 'C: Bunga Menurun = Persen Bunga dikali sisa pinjaman'
+					'A'  => 'A: Persen Bagi Hasil dikali angsuran bln',
+					'B'  => 'B: Persen Bagi Hasil dikali total pinjaman'
+					//'C'  => 'C: Bagi Hasil Menurun = Persen Bagi Hasil dikali sisa pinjaman'
 					);
-				echo form_label('Tipe Pinjaman Bunga', 'pinjaman_bunga_tipe');
+				echo form_label('Tipe Pinjaman Bagi Hasil', 'pinjaman_bunga_tipe');
 				echo form_dropdown('pinjaman_bunga_tipe', $options, $pinjaman_bunga_tipe, 'id="pinjaman_bunga_tipe" class="form-control"');
 				echo '
 				</td>
@@ -89,7 +89,7 @@
 					'maxlength'   => '255',
 					'style'       => 'width: 50%'
 					);
-				echo form_label('Suku Bunga Pinjaman (%)', 'bg_pinjam');
+				echo form_label('Bagi Hasil Pinjaman (%)', 'bg_pinjam');
 				echo form_input($data);
 				echo '
 				</td>

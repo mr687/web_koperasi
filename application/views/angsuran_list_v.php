@@ -165,7 +165,7 @@ $total_bayar = $sisa_bayar + $jml_denda;
 						<td class="h_kanan"> <?php echo number_format($row_pinjam->pokok_angsuran); ?></td>
 					</tr>
 					<tr>
-						<td> Biaya dan Bunga</td>
+						<td> Biaya dan Bagi Hasil</td>
 						<td> : </td>
 						<td class="h_kanan"> <?php echo number_format(($row_pinjam->biaya_adm) + ($row_pinjam->bunga_pinjaman)); ?></td>
 					</tr>
@@ -269,7 +269,7 @@ striped="true">
 		<tr>
 			<td></td>
 			<td valign="top"> - </td>
-			<td> Batas maksimal pembayaran adalah pada tanggal 15 (Lima Belas) setiap bulan, <code>Tanggal Dapat diubah pada menu Setting &raquo; Suku Bunga</code></td>
+			<td> Batas maksimal pembayaran adalah pada tanggal 15 (Lima Belas) setiap bulan, <code>Tanggal Dapat diubah pada menu Setting &raquo; Bagi Hasil</code></td>
 		</tr>
 		<tr>
 			<td colspan="3"><strong> B. Pelunasan Cepat</strong></td>

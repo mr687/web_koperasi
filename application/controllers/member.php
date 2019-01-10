@@ -89,7 +89,7 @@ class Member extends CI_Controller {
 			echo '		<th style="text-align: center;">Ags Ke</th>';
 			echo '		<th style="text-align: center;">Tanggal Tempo</th>';
 			echo '		<th style="text-align: center;">Angsuran Pokok</th>';
-			echo '		<th style="text-align: center;">Biaya Bunga</th>';
+			echo '		<th style="text-align: center;">Biaya Bagi Hasil</th>';
 			echo '		<th style="text-align: center;">Biaya Admin</th>';
 			echo '		<th style="text-align: center;">Jumlah Tagihan</th>';
 			echo '	</tr>';

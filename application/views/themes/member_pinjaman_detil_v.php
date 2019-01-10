@@ -42,7 +42,7 @@
 						<tr>
 							<th>Bln ke</th>
 							<th>Angsuran Pokok</th>
-							<th>Angsuran Bunga</th>
+							<th>Angsuran Bagi Hasil</th>
 							<th>Biaya Adm</th>
 							<th>Jumlah Angsuran</th>
 							<th>Tanggal Tempo</th>

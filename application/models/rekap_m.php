@@ -402,7 +402,7 @@ class Rekap_m extends CI_Model {
 		}
 	}
 
-	//data Bunga
+	//data Bagi Hasil
 	function get_data_bunga() {
 		$this->db->select('*');
 		$this->db->from('suku_bunga');

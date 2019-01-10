@@ -116,7 +116,7 @@ class Cetak_angsuran extends OperatorController {
 			<td width="20%" class="h_kanan">'.number_format(nsi_round($jml_denda)).'</td>
 		</tr>
 		<tr>
-			<td> Bunga Angsuran</td>
+			<td> Bagi Hasil Angsuran</td>
 			<td width="5%">: Rp. </td>
 			<td class="h_kanan">'.number_format($pinjaman->bunga_pinjaman).'</td>
 

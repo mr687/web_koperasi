@@ -162,7 +162,7 @@
 						<td class="h_kanan"> <?php echo number_format($row_pinjam->pokok_angsuran); ?></td>
 					</tr>
 					<tr>
-						<td> Biaya dan Bunga</td>
+						<td> Biaya dan Bagi Hasil</td>
 						<td> : </td>
 						<td class="h_kanan"> <?php echo number_format(($row_pinjam->biaya_adm) + ($row_pinjam->bunga_pinjaman)); ?></td>
 					</tr>

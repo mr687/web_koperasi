@@ -164,7 +164,7 @@ echo '<a href="'.site_url().'/pinjaman" class="btn btn-sm btn-danger" title="Kem
 							<td class="h_kanan"> <?php echo number_format($row_pinjam->pokok_angsuran); ?></td>
 						</tr>
 						<tr>
-							<td> Biaya dan Bunga</td>
+							<td> Biaya dan Bagi Hasil</td>
 							<td> : </td>
 							<td class="h_kanan"> <?php echo number_format(($row_pinjam->biaya_adm) + ($row_pinjam->bunga_pinjaman)); ?></td>
 						</tr>
@@ -199,7 +199,7 @@ echo '<a href="'.site_url().'/pinjaman" class="btn btn-sm btn-danger" title="Kem
 	<tr class="header_kolom">
 		<th style="width:10%; vertical-align: middle"> Bln ke</th>
 		<th style="width:15%; vertical-align: middle"> Angsuran Pokok</th>
-		<th style="width:15%; vertical-align: middle"> Angsuran Bunga</th>
+		<th style="width:15%; vertical-align: middle"> Angsuran Bagi Hasil</th>
 		<th style="width:15%; vertical-align: middle"> Biaya Adm</th>
 		<th style="width:30%; vertical-align: middle"> Jumlah Angsuran</th>
 		<th style="width:20%; vertical-align: middle"> Tanggal Tempo</th>

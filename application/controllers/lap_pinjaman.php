@@ -184,7 +184,7 @@ class Lap_pinjaman extends AdminController {
 							<td class="h_kanan"> '.number_format(@$r->pokok_angsuran).' </td>
 						</tr>
 						<tr>
-							<td>Bunga Pinjaman </td>
+							<td>Bagi Hasil Pinjaman </td>
 							<td class="h_kanan"> '.number_format(@$r->bunga_pinjaman).'</td>
 						</tr>
 						<tr>

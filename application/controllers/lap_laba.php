@@ -111,7 +111,7 @@ public function __construct() {
 				</tr>
 				<tr>
 					<td class="h_tengah"> 3 </td>
-					<td> Pendapatan Biaya Bunga</td>
+					<td> Pendapatan Biaya Bagi Hasil</td>
 					<td class="h_kanan">'.number_format(nsi_round($bunga)) .'</td>
 				</tr>
 				<tr>

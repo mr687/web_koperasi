@@ -162,7 +162,7 @@ class Rekap extends OperatorController {
 							<td width="75px" align="right">'.number_format($r->pokok_angsuran) .'</td>
 						</tr>
 						<tr>
-							<td width="100px" align="left">Bunga Pinjaman</td> 
+							<td width="100px" align="left">Bagi Hasil Pinjaman</td> 
 							<td width="10px" align="center"> : </td>
 							<td width="75px" align="right">'.number_format(nsi_round($r->bunga_pinjaman)).'</td>
 						</tr>
