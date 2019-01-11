@@ -561,7 +561,7 @@ class Pinjaman_m extends CI_Model {
 				*/
 				$odat['biaya_adm'] = $row->biaya_adm;
 				$odat['bunga_pinjaman'] = $row->bunga_pinjaman;
-				$odat['jumlah_ags'] = ($i == 1) ? $row-> ags_per_bulan + $row->biaya_adm : $row->ags_per_bulan ;
+				$odat['jumlah_ags'] = $row->ags_per_bulan ;
 				$tgl_tempo_var = substr($row->tgl_pinjam, 0, 7) . '-01';
 				$tgl_tempo = date("Y-m-d", strtotime($tgl_tempo_var . " +".$i." month"));
 				$tgl_tempo = substr($tgl_tempo, 0, 7) . '-' . $denda_hari;

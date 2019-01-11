@@ -185,7 +185,7 @@ class Angsuran extends OperatorController {
 		//total harus bayar 
 		$total_bayar = $jml_pinjaman + $jml_denda_num;
 
-		$sisa_tagihan = number_format(nsi_round($row_pinjam->ags_per_bulan * $sisa_ags + $biaya_adm)); #sisa tagihan 
+		$sisa_tagihan = number_format(nsi_round($row_pinjam->ags_per_bulan * $sisa_ags)); #sisa tagihan 
 		$sisa= $row_pinjam->ags_per_bulan * $sisa_ags + $biaya_adm; #sisa tagihan 
 
 		//sisa pembayaran

@@ -12,6 +12,7 @@ class Cetak_pinjaman_detail extends OperatorController {
 
 	function cetak($id) {
 		$row = $this->pinjaman_m->get_data_pinjam($id);
+		$jml_pinjam = $row->jumlah;
 		if($row == FALSE) {
 			echo 'DATA KOSONG';
         //redirect('angsuran_detail');
@@ -53,6 +54,7 @@ class Cetak_pinjaman_detail extends OperatorController {
 
 			$tgl_tempo = explode(' ', $row->tempo);
 			$tgl_tempo = jin_date_ina($tgl_tempo[0]); 
+			$jmll = $row->tagihan;
 
 			//AG'.sprintf('%05d', $row->anggota_id).'
 			$html .='<table width="100%">   
@@ -61,50 +63,54 @@ class Cetak_pinjaman_detail extends OperatorController {
 				<td width="2%"> : </td>
 				<td width="45%"> '.$anggota->identitas.'</td>
 
-				<td> Pokok Pinjaman </td>
+				<td> Angsuran Pokok </td>
 				<td width="5%"> : Rp. </td>
-				<td width="10%" class="h_kanan"> '.number_format($row->jumlah).'</td>
+				<td width="10%" class="h_kanan"> '.number_format($row->pokok_angsuran).'</td>
 			</tr>
 			<tr>
 				<td> Nama Anggota </td>
 				<td> : </td>
 				<td> <strong>'.strtoupper($anggota->nama).'</strong></td>
 
-				<td> Angsuran Pokok </td>
+				<td> Angsuran Bagi Hasil </td>
 				<td> : Rp. </td>
-				<td class="h_kanan"> '.number_format($row->pokok_angsuran).'</td>
+				<td class="h_kanan"> '.number_format($row->bunga_pinjaman).'</td>
 			</tr>
 			<tr>
 				<td> Dept </td>
 				<td> : </td>
 				<td> '.$anggota->departement.'</td>
 
-				<td> Biaya Admin </td>
+				<td> Angsuran Pinjaman </td>
 				<td> : Rp. </td>
-				<td class="h_kanan"> '.number_format($row->biaya_adm).'</td>
+				<td class="h_kanan"> '.number_format($row->ags_per_bulan).'</td>
 			</tr>
 			<tr>
 				<td> Alamat </td>
 				<td> : </td>
 				<td> '.$anggota->alamat.'</td>
 
-				<td> Angsuran Bagi Hasil </td>
-				<td> : Rp. </td>
-				<td class="h_kanan"> '.number_format($row->bunga_pinjaman).'</td>
+				<td> Pokok Pinjaman </td>
+				<td width="5%"> : Rp. </td>
+				<td width="10%" class="h_kanan"> '.number_format($row->jumlah).'</td>
 			</tr>
 			<tr>
 				<td > Nomor Pinjam </td>
 				<td > :  </td>
 				<td > '.'TPJ'.sprintf('%05d', $row->id).'</td>
 
-				<td> Jumlah Angsuran </td>
+				<td> Biaya Admin </td>
 				<td> : Rp. </td>
-				<td class="h_kanan"> '.number_format(nsi_round($row->ags_per_bulan)).'</td>
+				<td class="h_kanan"> '.number_format($row->biaya_adm).'</td>
 			</tr>
 			<tr>
 				<td> Tanggal Pinjam </td>
 				<td> : </td>
 				<td> '.$txt_tanggal.'</td>
+
+				<td><strong> Dana Cair </strong></td>
+				<td width="5%"><strong> : Rp. </strong></td>
+				<td width="10%" class="h_kanan"><strong> '.number_format($row->jumlah - $row->biaya_adm).'</strong></td>
 			</tr>
 			<tr>
 				<td> Tanggal Tempo </td>
@@ -129,7 +135,8 @@ class Cetak_pinjaman_detail extends OperatorController {
 			$html .= '<br><br><strong> Detail Pembayaran </strong><br><br>';
 			$html .= '<table width="80%">
 			<tr>
-				<td> Total Pinjman</td><td class="h_kanan">'.number_format(nsi_round($tagihan)).'</td>
+				<td> Total Pinjman</td>
+				<td class="h_kanan">'.number_format(nsi_round($tagihan)).'</td>
 				<td class="h_kanan"> Status Lunas </td> 
 				<td class="h_kiri"> : '.$row->lunas.'</td>
 			</tr>
@@ -159,7 +166,6 @@ class Cetak_pinjaman_detail extends OperatorController {
 				<th style="width:10%;"> Bln ke</th>
 				<th style="width:20%;"> Angsuran Pokok</th>
 				<th style="width:20%;"> Angsuran Bagi Hasil</th>
-				<th style="width:10%;"> Biaya Adm</th>
 				<th style="width:20%;"> Jumlah Angsuran</th>
 				<th style="width:20%;"> Tanggal Tempo</th>
 			</tr>';
@@ -176,7 +182,7 @@ class Cetak_pinjaman_detail extends OperatorController {
 				$txt_tanggal = jin_date_ina($row['tgl_tempo']);
 				$jml_pokok += $row['angsuran_pokok'];
 				$jml_bunga += $row['bunga_pinjaman'];
-				$jml_adm += $row['biaya_adm'];
+				$jml_adm = $row['biaya_adm'];
 				$jml_ags += $row['jumlah_ags'];
 
 				$html .= '
@@ -184,7 +190,6 @@ class Cetak_pinjaman_detail extends OperatorController {
 						<td class="h_tengah">'.$no.'</td>
 						<td class="h_kanan">'.number_format(nsi_round($row['angsuran_pokok'])).'</td>
 						<td class="h_kanan">'.number_format(nsi_round($row['bunga_pinjaman'])).'</td>
-						<td class="h_kanan">'.number_format(nsi_round($row['biaya_adm'])).'</td>
 						<td class="h_kanan">'.number_format(nsi_round($row['jumlah_ags'])).'</td>
 						<td class="h_kanan">'.$txt_tanggal.'</td>
 					</tr>';
@@ -194,7 +199,6 @@ class Cetak_pinjaman_detail extends OperatorController {
 						<td class="h_tengah"><strong>Jumlah</strong></td>
 						<td class="h_kanan"><strong>'.number_format(nsi_round($jml_pokok)).'</strong></td>
 						<td class="h_kanan"><strong>'.number_format(nsi_round($jml_bunga)).'</strong></td>
-						<td class="h_kanan"><strong>'.number_format(nsi_round($jml_adm)).'</strong></td>
 						<td class="h_kanan"><strong>'.number_format(nsi_round($jml_ags)).'</strong></td>
 						<td></td>
 					</tr>
@@ -237,7 +241,7 @@ class Cetak_pinjaman_detail extends OperatorController {
 			$html.='
 			<tr class="header_kolom">
 				<td class="h_tengah" colspan="5"><strong>Jumlah</strong></td>
-				<td class="h_kanan"><strong>'.number_format(nsi_round($jml_tot)).'</strong></td>
+				<td class="h_kanan"><strong>'.number_format(nsi_round($jmll)).'</strong></td>
 				<td class="h_kanan"><strong>'.number_format(nsi_round($jml_denda)).'</strong></td>
 			</tr>
 			</table>';

@@ -488,11 +488,6 @@ striped="true">
 					$('#sisa_tagihan').text(result.sisa_tagihan);
 					$('#jml_bayar').val(result.sisa_pembayaran);
 					$('#jml_kas').val(result.total_tagihan);
-
-					if(result.ags_ke == 1){
-						jQuery('#angsuran').val('<?= number_format(($row_pinjam->ags_per_bulan + $row_pinjam->biaya_adm)); ?>');
-						jQuery('#angsuran_txt').html('<?= number_format(($row_pinjam->ags_per_bulan + $row_pinjam->biaya_adm)); ?>');
-					}
 				}
 			},
 			error : function() {

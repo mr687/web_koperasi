@@ -200,7 +200,6 @@ echo '<a href="'.site_url().'/pinjaman" class="btn btn-sm btn-danger" title="Kem
 		<th style="width:10%; vertical-align: middle"> Bln ke</th>
 		<th style="width:15%; vertical-align: middle"> Angsuran Pokok</th>
 		<th style="width:15%; vertical-align: middle"> Angsuran Bagi Hasil</th>
-		<th style="width:15%; vertical-align: middle"> Biaya Adm</th>
 		<th style="width:30%; vertical-align: middle"> Jumlah Angsuran</th>
 		<th style="width:20%; vertical-align: middle"> Tanggal Tempo</th>
 	</tr>
@@ -227,38 +226,31 @@ if(!empty($simulasi_tagihan)) {
 		$jml_adm = $row['biaya_adm'];
 		$jml_ags += $row['jumlah_ags'];
 
-			if($no == 1){
-				echo '
-					<tr bgcolor='.$warna.'>
-						<td class="h_tengah">'.$no.'</td>
-						<td class="h_kanan">'.number_format(nsi_round($row['angsuran_pokok'])).'</td>
-						<td class="h_kanan">'.number_format(nsi_round($row['bunga_pinjaman'])).'</td>
-						<td class="h_kanan">'.number_format(nsi_round($row['biaya_adm'])).'</td>
-						<td class="h_kanan">'.number_format(nsi_round($row['jumlah_ags'])).'</td>
-						<td class="h_tengah">'.$txt_tanggal.'</td>
-					</tr>';
-			}else{
-				echo '
-					<tr bgcolor='.$warna.'>
-						<td class="h_tengah">'.$no.'</td>
-						<td class="h_kanan">'.number_format(nsi_round($row['angsuran_pokok'])).'</td>
-						<td class="h_kanan">'.number_format(nsi_round($row['bunga_pinjaman'])).'</td>
-						<td class="h_kanan">-</td>
-						<td class="h_kanan">'.number_format(nsi_round($row['jumlah_ags'])).'</td>
-						<td class="h_tengah">'.$txt_tanggal.'</td>
-					</tr>';
-			}
+
+		echo '
+			<tr bgcolor='.$warna.'>
+				<td class="h_tengah">'.$no.'</td>
+				<td class="h_kanan">'.number_format(nsi_round($row['angsuran_pokok'])).'</td>
+				<td class="h_kanan">'.number_format(nsi_round($row['bunga_pinjaman'])).'</td>
+				<td class="h_kanan">'.number_format(nsi_round($row['jumlah_ags'])).'</td>
+				<td class="h_tengah">'.$txt_tanggal.'</td>
+			</tr>';
 		$no++;
 	}
 	echo '<tr bgcolor="#eee">
 				<td class="h_tengah"><strong>Jumlah</strong></td>
 				<td class="h_kanan"><strong>'.number_format(nsi_round($jml_pokok)).'</strong></td>
 				<td class="h_kanan"><strong>'.number_format(nsi_round($jml_bunga)).'</strong></td>
-				<td class="h_kanan"><strong>'.number_format(nsi_round($jml_adm)).'</strong></td>
 				<td class="h_kanan"><strong>'.number_format(nsi_round($jml_ags)).'</strong></td>
 				<td></td>
-			</tr>
-		</table>';
+			</tr>';
+	echo '<tr class="header_kolom">
+			<th class="h_tengah" style="padding:10px 0px 0px 0px;" colspan="2"><strong>Total Dana Cair (Rp)</strong></th>
+			<th class="h_tengah" style="padding:10px 0px 0px 0px;"><strong>' . number_format(nsi_round($row_pinjam->jumlah)) . ' - ' . number_format($jml_adm) . '</strong></th>
+			<th class="h_tengah" style="padding:10px 0px 0px 0px;"><strong>' . number_format(nsi_round($row_pinjam->jumlah - $jml_adm)) . '</strong></th>
+			<th></th>
+		</tr>
+	</table>';
 }
 ?>
 

@@ -61,7 +61,7 @@ class Cetak_pinjaman extends OperatorController {
 
 		$html .='<div class="h_tengah"><strong>BUKTI PENCAIRAN DANA KREDIT </strong> <br> Ref. '.date('Ymd_His').'</div>
 		<br> Telah terima dari <strong>'.$out['nama_lembaga'].'</strong>
-		<br> Pada Tanggal '.jin_date_ina(date('Y-m-d')).' untuk realisasi kredit sebessar Rp. '.number_format($row->jumlah).' ('.$this->terbilang->eja(nsi_round($row->jumlah)).' RUPIAH) dengan rincian :
+		<br> Pada Tanggal '.jin_date_ina(date('Y-m-d')).' untuk realisasi kredit sebessar Rp. '.number_format($row->jumlah - $row->biaya_adm).' ('.$this->terbilang->eja(nsi_round($row->jumlah - $row->biaya_adm)).' RUPIAH) dengan rincian :
 		<br>
 		<table width="100%">   
 			<tr>
@@ -119,14 +119,19 @@ class Cetak_pinjaman extends OperatorController {
 				<td width="20%" class="h_kanan">'.number_format(nsi_round($row->jumlah)).'</td>
 			</tr>
 			<tr>
-				<td> Angsuran Pokok </td>
-				<td>: Rp. </td>
-				<td class="h_kanan">'.number_format($row->pokok_angsuran).'</td>
-			</tr>
-			<tr>
 				<td> Biaya Admin </td>
 				<td>: Rp. </td>
 				<td class="h_kanan">'.number_format($row->biaya_adm).'</td>
+			</tr>
+			<tr>
+				<td><strong> Dana Cair</strong></td>
+				<td><strong>: Rp. </strong></td>
+				<td class="h_kanan"><strong>'.number_format($row->jumlah - $row->biaya_adm).'</strong></td>
+			</tr>
+			<tr>
+				<td> Angsuran Pokok </td>
+				<td>: Rp. </td>
+				<td class="h_kanan">'.number_format($row->pokok_angsuran).'</td>
 			</tr>
 			<tr>
 				<td> Angsuran Bagi Hasil </td>
